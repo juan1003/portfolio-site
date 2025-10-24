@@ -63,6 +63,11 @@ const LandingPage = () => {
           ))}
         </div>
       </section>
+
+      <section className="cta-section">
+        <h2 className="section-title">Let's work together!</h2>
+        <a href="https://cal.com/juand" target="_blank" rel="noopener noreferrer" className="cta-button">Book a call</a>
+      </section>
     </div>
   );
 };
