@@ -1,0 +1,190 @@
+/* src/design-system.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
+
+/*
+ * FLATTENED MATERIAL DESIGN SYSTEM
+ *
+ * This design system is inspired by Google's Material Design but adapted for a flatter, more minimalist aesthetic.
+ * It uses CSS variables to ensure consistency and make theming easy.
+ *
+ */
+
+:root {
+  /* Light Theme Palette */
+  --primary-color: #3f51b5;
+  --primary-color-dark: #303f9f;
+  --primary-color-light: #c5cae9;
+  --secondary-color: #e91e63;
+  --secondary-color-dark: #c2185b;
+  --background-color: #ffffff;
+  --surface-color: #ffffff;
+  --error-color: #b00020;
+  --on-primary-color: #ffffff;
+  --on-secondary-color: #ffffff;
+  --on-surface-color: #000000;
+  --on-error-color: #ffffff;
+  --text-primary-color: #000000;
+  --text-secondary-color: rgba(0, 0, 0, 0.6);
+  --text-hint-color: rgba(0, 0, 0, 0.38);
+  --text-disabled-color: rgba(0, 0, 0, 0.38);
+
+  /* Spacing & Rounded Corners */
+  --spacing-unit: 8px;
+  --border-radius: 4px;
+
+  /* Font Family */
+  --font-family: 'Montserrat', sans-serif;
+}
+
+/* Dark Theme */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary-color: #7986cb;
+    --primary-color-dark: #5c6bc0;
+    --primary-color-light: #c5cae9;
+    --secondary-color: #f06292;
+    --secondary-color-dark: #ec407a;
+    --background-color: #121212;
+    --surface-color: #1e1e1e;
+    --error-color: #cf6679;
+    --on-primary-color: #ffffff;
+    --on-secondary-color: #000000;
+    --on-surface-color: #ffffff;
+    --on-error-color: #000000;
+    --text-primary-color: #ffffff;
+    --text-secondary-color: rgba(255, 255, 255, 0.7);
+    --text-hint-color: rgba(255, 255, 255, 0.5);
+    --text-disabled-color: rgba(255, 255, 255, 0.5);
+  }
+
+  .btn-primary:hover {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  }
+
+  .btn-secondary:hover {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  }
+
+  .card {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.44);
+  }
+
+  .form-control:focus {
+    box-shadow: 0 0 0 2px rgba(121, 134, 203, 0.2);
+  }
+}
+
+/*
+ * BASE STYLES
+ */
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--background-color);
+  color: var(--text-primary-color);
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/*
+ * BUTTONS
+ */
+
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1.25px;
+  transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  text-decoration: none;
+  text-align: center;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: var(--on-primary-color);
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-color-dark);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.btn-secondary {
+  background-color: var(--secondary-color);
+  color: var(--on-secondary-color);
+}
+
+.btn-secondary:hover {
+  background-color: var(--secondary-color-dark);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.btn-text {
+  background-color: transparent;
+  color: var(--primary-color);
+  padding: 12px 16px;
+}
+
+.btn-text:hover {
+  background-color: rgba(63, 81, 181, 0.08);
+}
+
+/*
+ * CARDS
+ */
+
+.card {
+  background-color: var(--surface-color);
+  border-radius: var(--border-radius);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  padding: calc(var(--spacing-unit) * 2);
+  margin: calc(var(--spacing-unit) * 2) 0;
+}
+
+/*
+ * INPUTS
+ */
+
+.form-group {
+  margin-bottom: calc(var(--spacing-unit) * 2);
+  text-align: left;
+}
+
+.form-control {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--text-disabled-color);
+  border-radius: var(--border-radius);
+  font-size: 16px;
+  background-color: var(--background-color);
+  color: var(--text-primary-color);
+  transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(63, 81, 181, 0.2);
+}
+
+.form-label {
+  display: block;
+  margin-bottom: var(--spacing-unit);
+  font-size: 14px;
+  color: var(--text-secondary-color);
+  text-align: left;
+}
